@@ -9,6 +9,8 @@
  *
  */
 function getEmailDomain(email) {
+  const regExp = /(?<=@)[a-z\d-]+\.[a-z]{2,3}$/i;
+  return email.match(regExp)[0];
 }
 
 module.exports = getEmailDomain;
