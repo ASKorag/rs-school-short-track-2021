@@ -9,11 +9,11 @@
  * @return {Number}
  *
  * @example
- * For 00-1B-63-84-45-E6, the output should be true.
+//  * For 1B-00-63-84-45-E6, the output should be true.
  *
  */
-function isMAC48Address(/* n */) {
-  throw new Error('Not implemented');
+function isMAC48Address(str) {
+  return /^([\dA-F]{2}-){5}[\dA-F]{2}$/i.test(str);
 }
 
 module.exports = isMAC48Address;
