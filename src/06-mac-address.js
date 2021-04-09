@@ -5,7 +5,7 @@
  * Your task is to check by given string inputString
  * whether it's a MAC-48 address or not.
  *
- * @param {Number} inputString
+ * @param {Number} str
  * @return {Number}
  *
  * @example
