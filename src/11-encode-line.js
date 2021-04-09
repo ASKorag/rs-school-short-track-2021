@@ -26,7 +26,7 @@ function encodeLine(str) {
     const match = regExp.exec(str)[0];
 
     result.push(getCode(match));
-    
+
     pos = regExp.lastIndex;
   }
   return result.join('');
