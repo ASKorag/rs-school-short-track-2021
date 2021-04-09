@@ -15,18 +15,9 @@
  * The result should be 9
  */
 function getMatrixElementsSum(matrix) {
-  const matrixWidth = matrix[0].length;
-  const newArr = [].concat(...matrix);
-  const sum = newArr.reduce((ac, cu, index, startArr) => {
-    if (
-      startArr[index - matrixWidth] === 0 ||
-      startArr[index - matrixWidth] === undefined
-    ) {
-      return ac + 0;
-    }
-    return ac + cu;
-  }, 0);
-  return sum;
+  const width = matrix[0].length;
+  const flatArr = [].concat(...matrix);
+  return flatArr.reduce((ac, cu, index, arr) => (arr[index - width] === 0 ? ac : ac + cu));
 }
 
 module.exports = getMatrixElementsSum;
