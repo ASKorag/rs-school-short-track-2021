@@ -11,7 +11,13 @@
  *
  */
 function getSumOfDigits(num) {
-  console.log(num);
+  if (num < 10) {
+    return num;
+  }
+
+  const newNum = [...String(num)].reduce((ac, cu) => +ac + +cu);
+
+  return getSumOfDigits(newNum);
 }
 
 module.exports = getSumOfDigits;
