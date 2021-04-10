@@ -14,6 +14,25 @@
  *
  */
 function renameFiles(names) {
+  const set = new Set();
+
+  names.forEach((name) => {
+    if (set.has(name)) {
+      let i = 1;
+      while (1) {
+        if (!set.has(`${name}(${i})`)) {
+          set.add(`${name}(${i})`);
+          break;
+        } else {
+          i++;
+        }
+      }
+    } else {
+      set.add(name);
+    }
+  });
+
+  return Array.from(set);
 }
 
 module.exports = renameFiles;
