@@ -18,13 +18,13 @@ function renameFiles(names) {
 
   names.forEach((name) => {
     if (set.has(name)) {
-      let i = 1;
-      while (1) {
-        if (!set.has(`${name}(${i})`)) {
-          set.add(`${name}(${i})`);
+      let num = 1;
+      while (set.has(name)) {
+        if (!set.has(`${name}(${num})`)) {
+          set.add(`${name}(${num})`);
           break;
         } else {
-          i++;
+          num++;
         }
       }
     } else {
