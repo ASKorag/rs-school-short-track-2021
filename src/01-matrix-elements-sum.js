@@ -16,7 +16,7 @@
  */
 function getMatrixElementsSum(matrix) {
   const width = matrix[0].length;
-  const flatArr = [].concat(...matrix);
+  const flatArr = matrix.flat();
   return flatArr.reduce((ac, cu, index, arr) => (arr[index - width] === 0 ? ac : ac + cu));
 }
 
