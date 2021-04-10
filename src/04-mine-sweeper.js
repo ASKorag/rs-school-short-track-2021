@@ -21,31 +21,31 @@
  *  [1, 1, 1]
  * ]
  */
+function getPartOfRow(row, index) {
+  return row.slice((index === 0 ? 0 : index - 1), index + 2);
+}
+
 function minesweeper(matrix) {
-  const res = matrix.map((row, rowIndex, arr) => {
+  return matrix.map((row, rowIndex, arr) => {
     const newRow = row.map((item, colIndex, rowArr) => {
       const prevRow = rowIndex === 0
         ? []
-        : [arr[rowIndex - 1][colIndex - 1], arr[rowIndex - 1][colIndex],
-          arr[rowIndex - 1][colIndex + 1]];
+        : getPartOfRow(arr[rowIndex - 1], colIndex);
 
       const nextRow = rowIndex === arr.length - 1
         ? []
-        : [arr[rowIndex + 1][colIndex - 1], arr[rowIndex + 1][colIndex],
-          arr[rowIndex + 1][colIndex + 1]];
+        : getPartOfRow(arr[rowIndex + 1], colIndex);
 
-      const checkArr = [
+      const checkedArr = [
         ...prevRow,
         rowArr[colIndex - 1], rowArr[colIndex + 1],
         ...nextRow,
       ];
 
-      return checkArr.filter((value) => value === true).length;
+      return checkedArr.reduce((amount, cu) => (cu === true ? amount + 1 : amount), 0);
     });
     return newRow;
   });
-
-  return res;
 }
 
 module.exports = minesweeper;
