@@ -21,8 +21,7 @@
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new Error('Not implemented');
+function minesweeper(matrix) {
 }
 
 module.exports = minesweeper;
