@@ -11,13 +11,20 @@
  *
  */
 class Stack {
+  constructor() {
+    this._ = [];
+  }
+
   push(element) {
+    this._.push(element);
   }
 
   pop() {
+    return this._.pop();
   }
 
   peek() {
+    return this._[this._.length - 1];
   }
 }
 
