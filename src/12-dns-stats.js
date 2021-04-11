@@ -21,6 +21,27 @@
  *
  */
 function getDNSStats(domains) {
+  const result = {};
+
+  domains.forEach((domain) => {
+    const revDomainArr = domain.split('.').reverse().map((word) => `.${word}`);
+
+    let savedStr = '';
+
+    revDomainArr.forEach((word) => {
+      const checkedStr = savedStr + word;
+
+      if (result[checkedStr]) {
+        result[checkedStr]++;
+      } else {
+        result[checkedStr] = 1;
+      }
+
+      savedStr = checkedStr;
+    });
+  });
+
+  return result;
 }
 
 module.exports = getDNSStats;
