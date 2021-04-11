@@ -12,13 +12,45 @@ const ListNode = require('../extensions/list-node');
  */
 
 class Queue {
-  get size() {
+  constructor() {
+    this.size = 0;
+    this.head = new ListNode();
+    this.tail = this.head;
   }
 
-  enqueue(/* element */) {
+  get size() {
+    return this.size;
+  }
+
+  enqueue(element) {
+    // if (this.head === null) {
+    //   this.head = new ListNode();
+    //   this.head.value = element;
+    //   this.tail = this.head;
+
+    //   this.size++;
+    // } else {
+    //   this.tail.next = new ListNode();
+    //   this.tail.value = element;
+    //   this.tail = this.tail.next;
+
+    //   this.size++;
+    // }
+
+    // this.tail.next = new ListNode(element);
+    // this.tail = this.tail.next;
+
+    // this.size++;
   }
 
   dequeue() {
+    const { value } = this.head;
+
+    this.head = this.head.next;
+
+    this.size--;
+
+    return value;
   }
 }
 
