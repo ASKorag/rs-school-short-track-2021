@@ -20,8 +20,7 @@
  * }
  *
  */
-function getDNSStats(/* domains */) {
-  throw new Error('Not implemented');
+function getDNSStats(domains) {
 }
 
 module.exports = getDNSStats;
